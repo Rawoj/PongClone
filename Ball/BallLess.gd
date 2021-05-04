@@ -5,7 +5,7 @@ signal goal(player)
 
 
 const DEFAULT_SPEED = 200
-
+const SPEED_INCREASE_RATE = 10
 var direction = Vector2.LEFT
 
 onready var _speed = DEFAULT_SPEED
@@ -13,9 +13,8 @@ onready var _speed = DEFAULT_SPEED
 const DEFAULT_POS = Vector2(500, 300)
 const BOUND_POS_Y = [590, 10]
 const BOUND_POS_X = [-50, 1075]
-
+var manager
 func _ready():
-	# Default position
 	position = DEFAULT_POS
 	
 func reflectRandom():
@@ -34,18 +33,21 @@ func keep_in_bounds():
 		reflectY()
 		position.y = BOUND_POS_Y[1]
 
+func _on_Area2D_goal(_player):
+	pass # Replace with function body.
+	
 func detect_goals():
 	# print("detecting", BOUND_POS_X)
 	# P2 goal
 	if position.x <= BOUND_POS_X[0]:
 		emit_signal("goal", 2)
 		# get_node("GameController/ScoreManager").call("change_score(2)")
-		reset(Vector2.RIGHT)
+		reset(Vector2.LEFT)
 	# P1 goal
 	if position.x >= BOUND_POS_X[1]:
 		emit_signal("goal", 1)
 		# get_node("GameController/ScoreManager").call("change_score(1)")
-		reset(Vector2.LEFT)
+		reset(Vector2.RIGHT)
 
 
 func _process(delta):
@@ -59,8 +61,11 @@ func reset(dir):
 	position = DEFAULT_POS
 	_speed = DEFAULT_SPEED
 	
-	
+
 func _on_body_entered(_body):
 	emit_signal("hit")
-	_speed += 10
+	_speed += SPEED_INCREASE_RATE
 	reflectX()
+
+
+

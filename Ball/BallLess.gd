@@ -1,6 +1,7 @@
 extends Area2D
 
 signal hit
+signal boundHit
 signal goal(player)
 
 
@@ -27,9 +28,12 @@ func reflectY():
 func keep_in_bounds():
 	#print(position.y, BOUND_POS_Y)
 	if position.y >= BOUND_POS_Y[0]:
+		emit_signal("boundHit")
 		reflectY()
 		position.y = BOUND_POS_Y[0]
+		
 	if position.y <= BOUND_POS_Y[1]:
+		emit_signal("boundHit")
 		reflectY()
 		position.y = BOUND_POS_Y[1]
 

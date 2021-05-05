@@ -1,8 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Controllers/ScoreManager.gd" type="Script" id=1]
 [ext_resource path="res://Controllers/AudioStreamPlayer.gd" type="Script" id=2]
 [ext_resource path="res://Controllers/SoundManager.gd" type="Script" id=3]
+[ext_resource path="res://Sounds/goal.wav" type="AudioStream" id=4]
+[ext_resource path="res://Sounds/bounce2.wav" type="AudioStream" id=5]
+[ext_resource path="res://Sounds/bounce.wav" type="AudioStream" id=6]
 
 [sub_resource type="DynamicFontData" id=1]
 antialiased = false
@@ -21,7 +24,18 @@ __meta__ = {
 [node name="SoundManager" type="Node" parent="."]
 script = ExtResource( 3 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+[node name="HitAudioPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource( 5 )
+volume_db = -5.0
+script = ExtResource( 2 )
+
+[node name="BoundHitAudioPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource( 6 )
+volume_db = -5.0
+script = ExtResource( 2 )
+
+[node name="GoalAudioPlayer" type="AudioStreamPlayer" parent="SoundManager"]
+stream = ExtResource( 4 )
 script = ExtResource( 2 )
 
 [node name="ScoreManager" type="Node" parent="."]
@@ -51,5 +65,3 @@ text = "123"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-
-[connection signal="finished" from="SoundManager/AudioStreamPlayer" to="SoundManager/AudioStreamPlayer" method="_on_AudioStreamPlayer_finished"]

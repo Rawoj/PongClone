@@ -81,4 +81,5 @@ __meta__ = {
 }
 
 [connection signal="button_down" from="PVP" to="." method="_on_PVP_button_down"]
+[connection signal="button_down" from="PVE" to="." method="_on_PVE_button_down"]
 [connection signal="button_down" from="SettingsButton" to="." method="_on_settings_button_down"]

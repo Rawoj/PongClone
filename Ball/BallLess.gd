@@ -4,8 +4,7 @@ signal hit
 signal boundHit
 signal goal(player)
 
-
-const DEFAULT_SPEED = 200
+const DEFAULT_SPEED = 300
 const SPEED_INCREASE_RATE = 10
 var direction = Vector2.LEFT
 
@@ -14,7 +13,9 @@ onready var _speed = DEFAULT_SPEED
 const DEFAULT_POS = Vector2(500, 300)
 const BOUND_POS_Y = [590, 10]
 const BOUND_POS_X = [-50, 1075]
+
 var manager
+
 func _ready():
 	position = DEFAULT_POS
 	

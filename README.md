@@ -1,7 +1,9 @@
 # Pong clone
 Made in Godot engine using GDScript
 
-![Pong1](https://user-images.githubusercontent.com/17354146/117030371-dc719000-acff-11eb-9a82-d180c582b34c.png)
+![mainmenu](https://user-images.githubusercontent.com/17354146/117199471-87f70f00-adea-11eb-9238-2cfacc9fbc05.png)
+![gameplay](https://user-images.githubusercontent.com/17354146/117199475-888fa580-adea-11eb-9672-07a9cca6df5b.png)
+![settings](https://user-images.githubusercontent.com/17354146/117199473-888fa580-adea-11eb-8053-9deb5d040e93.png)
 
-![Pong2](https://user-images.githubusercontent.com/17354146/117030373-dc719000-acff-11eb-8e1d-7e6b6917375b.png)
+
 
